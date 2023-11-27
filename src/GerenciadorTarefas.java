@@ -31,11 +31,13 @@ public class GerenciadorTarefas {
         GerenciadorTarefas alex = new GerenciadorTarefas("Alex");
         GerenciadorTarefas elias = new GerenciadorTarefas("Elias");
 
-        guilherme.adicionarTarefa("Concluir projeto Java");
+        guilherme.adicionarTarefa("Concluir projeto Java e estudar");
         alex.adicionarTarefa("Estudar para prova de Java");
+        elias.adicionarTarefa("Estudar");
 
         guilherme.listarTarefas();
         alex.listarTarefas();
+        elias.listarTarefas();
 
         guilherme.enviarTarefa("Alex", "Revisar código");
         alex.listarTarefas();
