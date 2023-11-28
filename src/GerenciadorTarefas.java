@@ -40,6 +40,7 @@ public class GerenciadorTarefas {
         elias.listarTarefas();
 
         guilherme.enviarTarefa("Alex", "Revisar código");
+        guilherme.enviarTarefa("Elias", "Revisar código");
         alex.listarTarefas();
     }
 }
