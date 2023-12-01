@@ -65,11 +65,28 @@ public class GerenciadorTarefas {
             return tarefasPendentes;
         }
     }
+    public static class AlertaTarefa {
+        private String nomeMembro;
+
+        public AlertaTarefa(String nomeMembro) {
+            this.nomeMembro = nomeMembro;
+        }
+
+        public void alertaTarefasConcluidas(List<String> tarefasConcluidas) {
+            System.out.println("Alerta: Tarefas concluídas por " + nomeMembro + ": " + tarefasConcluidas);
+        }
+
+
+        public void alertaTarefasPendentes(List<String> tarefasPendentes) {
+            System.out.println("Alerta: Tarefas pendentes para " + nomeMembro + ": " + tarefasPendentes);
+        }
+    }
 
     public static void main(String[] args) {
         GerenciadorTarefas guilherme = new GerenciadorTarefas("Guilherme");
         GerenciadorTarefas alex = new GerenciadorTarefas("Alex");
         GerenciadorTarefas elias = new GerenciadorTarefas("Elias");
+        AlertaTarefa alertaGuilherme = new AlertaTarefa("Guilherme");
 
         guilherme.adicionarTarefa("Concluir projeto Java e estudar");
         alex.adicionarTarefa("Estudar para prova de Java");
@@ -93,10 +110,10 @@ public class GerenciadorTarefas {
         guilherme.listarTarefas();
 
         List<String> tarefasConcluidasPorGuilherme = tarefasCompletasGuilherme.getTarefasConcluidas();
-        System.out.println("Tarefas concluídas por Guilherme: " + tarefasConcluidasPorGuilherme);
+        alertaGuilherme.alertaTarefasConcluidas(tarefasConcluidasPorGuilherme);
 
         List<String> tarefasPendentesGuilherme = tarefasCompletasGuilherme.tarefasPendentes(guilherme.tarefas, tarefasConcluidasPorGuilherme);
-        System.out.println("Tarefas pendentes para Guilherme: " + tarefasPendentesGuilherme);
+        alertaGuilherme.alertaTarefasPendentes(tarefasPendentesGuilherme);
     }
 }
 
